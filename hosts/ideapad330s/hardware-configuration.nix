@@ -33,6 +33,12 @@
       fsType = "ext4";
     };
 
+  fileSystems."/Vault" =
+    { device = "/dev/disk/by-uuid/674120D23A4F6FB1";
+      fsType = "ntfs-3g";
+      options = [ "rw" "uid=1000" ];
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/08c6d059-1ac0-43dd-8229-4da097e75d64"; }
     ];

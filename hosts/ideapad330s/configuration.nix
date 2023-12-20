@@ -17,22 +17,36 @@
     };
   };
 
-  ########################## 
-  # █▀▀ █░░ ▄▀█ █▄▀ █▀▀ █▀ #
-  # █▀░ █▄▄ █▀█ █░█ ██▄ ▄█ #
-  ##########################
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  ##################
+  ### █▄░█ █ ▀▄▀ ###
+  ### █░▀█ █ █░█ ###
+  ##################
 
+  nix = {
 
+    # Enable Flakes support
+    settings.experimental-features = [ "nix-command" "flakes"];
+
+    # Auto optimize the store
+    optimise.automatic = true;
+
+    # Garbage collection
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
 
   ####################
   ### NTFS Support ###
   ####################
   boot.supportedFilesystems = [ "ntfs" ];
 
-  ###############
-  ### AMD GPU ###
-  ###############
+  ###################
+  ### █▀▀ █▀█ █░█ ###
+  ### █▄█ █▀▀ █▄█ ###
+  ###################
   boot.initrd.kernelModules = [ "amdgpu" ];
 
   hardware.opengl = {
@@ -48,9 +62,10 @@
     ];
   };
 
-  ##################
-  ### Networking ###
-  ##################
+  ################################################# 
+  ### █▄░█ █▀▀ ▀█▀ █░█░█ █▀█ █▀█ █▄▀ █ █▄░█ █▀▀ ###
+  ### █░▀█ ██▄ ░█░ ▀▄▀▄▀ █▄█ █▀▄ █░█ █ █░▀█ █▄█ ###
+  ################################################# 
   networking = {
     hostName = "rosy";
 

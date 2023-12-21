@@ -158,7 +158,6 @@
       xdg-user-dirs
       networkmanagerapplet
       mpv
-      protonup-qt
       dunst
       feh
     ];

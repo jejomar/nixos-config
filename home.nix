@@ -4,6 +4,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfreePredicate = _: true;
 
+  # Import modules here
+  imports = [
+    ./sh.nix
+    ./app/terminals/kitty.nix
+    ./app/browser/chromium.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jejomar";
@@ -21,8 +28,18 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # Graphical
+    # Media
     spotify
+
+    # Browsers
+    chromium
+    brave
+
+    # Productivity
+    libreoffice-fresh
+
+    # Useful tools
+    protonup-qt # For installing Proton GE
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -66,20 +83,6 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-  };
-
-  # Bash
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -l --color=auto";
-      la = "ls -la --color=auto";
-
-      hl = "nvim ~/.config/hypr/hyprland.conf";
-
-      nxrb = "sudo nixos-rebuild --switch flake $HOME/Repositories/nixos-config";
-      hmrb = "home-manager switch --flake $HOME/Repositories/nixos-config";
-    };
   };
 
   # Let Home Manager install and manage itself.

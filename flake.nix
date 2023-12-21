@@ -20,6 +20,12 @@
           inherit system;
           modules = [ 
             ./hosts/ideapad330s/configuration.nix
+
+            # Additional Home-Manager configs
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            }
           ];
         };
       };

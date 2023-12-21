@@ -13,9 +13,12 @@
   # Import modules here
   imports = [
     ./sh.nix
+    ./app/media/imv.nix
     ./app/terminals/kitty.nix
+    ./app/tools/mako.nix
     ./app/browser/chromium.nix
     ./theming/theming.nix
+    ./wm/hyprland/hyprland.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -37,19 +40,36 @@
   home.packages = with pkgs; [
     # Media
     spotify
+    mkvtoolnix
+    imv
 
     # Browsers
     chromium
     brave
+
+    # Graphics
+    gimp-with-plugins
+    darktable
 
     # Productivity
     libreoffice-fresh
     zathura
     obsidian
 
-    # Useful tools
+    # Communication
+    discord
+    telegram-desktop
+
+    # Graphical tools
     protonup-qt # For installing Proton GE
+    qbittorrent # Torrent client
+    picard # Music tagger
+
+
+    # Useful tools
     yt-dlp # Download videos
+    mako # Notification daemon
+    glib # Access gsettings
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

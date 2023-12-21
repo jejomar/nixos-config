@@ -163,8 +163,6 @@
       xdg-user-dirs
       networkmanagerapplet
       mpv
-      dunst
-      feh
     ];
   };
 

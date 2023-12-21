@@ -11,6 +11,8 @@
   gtk.enable = true;
   qt.enable = true;
 
+  qt.platformTheme = "gtk3";
+
   # Set cursor theme
   gtk.cursorTheme = {
     package = pkgs.bibata-cursors;

@@ -2,13 +2,20 @@
 
 {
   # Allow unfree packages
-  nixpkgs.config.allowUnfreePredicate = _: true;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (_: true);
+
+  # Temporary fix for Electron
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0" # Required by Obsidian
+  ];
 
   # Import modules here
   imports = [
     ./sh.nix
     ./app/terminals/kitty.nix
     ./app/browser/chromium.nix
+    ./theming/theming.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -37,9 +44,12 @@
 
     # Productivity
     libreoffice-fresh
+    zathura
+    obsidian
 
     # Useful tools
     protonup-qt # For installing Proton GE
+    yt-dlp # Download videos
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

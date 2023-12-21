@@ -90,7 +90,12 @@
   services.xserver.enable = true;
 
   # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager = {
+    sddm = {
+      enable = true;
+      theme = "${import ../../theming/sddm.nix { inherit pkgs; }}";
+    };
+  };
 
   ################
   ### Hyprland ###
@@ -169,6 +174,13 @@
     neovim
     kitty
     bat
+
+    unzip
+
+    # Needed for SDDM theming
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtsvg
+    libsForQt5.qt5.qtgraphicaleffects
   ];
 
   #######################

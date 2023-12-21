@@ -19,6 +19,9 @@ let
     # Easy navigation
     nx = "cd $HOME/Repositories/nixos-config";
 
+    # Quick commands
+    fixnet = "sudo rmmod ath10k_pci && sudo modprobe ath10k_pci";
+
     # NixOS things
     nxrb = "sudo nixos-rebuild switch --flake $HOME/Repositories/nixos-config";
     hmrb = "home-manager switch --flake $HOME/Repositories/nixos-config";

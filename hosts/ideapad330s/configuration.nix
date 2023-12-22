@@ -4,6 +4,9 @@
   imports =
     [
       ./hardware-configuration.nix
+
+      ../../system/filemgmt.nix # File manager and file system support
+      ../../system/gpu.nix # Extend graphical functionalities
     ];
 
   ###################
@@ -38,29 +41,6 @@
     };
   };
 
-  ####################
-  ### NTFS Support ###
-  ####################
-  boot.supportedFilesystems = [ "ntfs" ];
-
-  ###################
-  ### █▀▀ █▀█ █░█ ###
-  ### █▄█ █▀▀ █▄█ ###
-  ###################
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
-  hardware.opengl = {
-    driSupport = true;
-    driSupport32Bit = true;
-
-    extraPackages = with pkgs; [
-      amdvlk
-    ];
-
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
-    ];
-  };
 
   ################################################# 
   ### █▄░█ █▀▀ ▀█▀ █░█░█ █▀█ █▀█ █▄▀ █ █▄░█ █▀▀ ###
@@ -173,8 +153,6 @@
     kitty
     bat
 
-    unzip
-
     # Needed for SDDM theming
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtsvg
@@ -205,22 +183,6 @@
       }
     )
   ];
-
-  ####################
-  ### File Manager ###
-  ####################
-  programs.thunar = {
-    enable = true;
-
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
-  };
-
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-
 
   #############
   ### Steam ###

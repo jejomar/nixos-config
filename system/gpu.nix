@@ -28,7 +28,7 @@
   };
 
   # Re-enable OpenCL for Polaris based cards
-  environment.variable = {
+  environment.variables = {
     ROC_ENABLE_PRE_VEGA = "1";
   };
 }

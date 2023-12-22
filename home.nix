@@ -14,6 +14,7 @@
   imports = [
     ./sh.nix
     ./app/media/imv.nix
+    ./app/media/mpv.nix
     ./app/terminals/kitty.nix
     ./app/tools/mako.nix
     ./app/browser/chromium.nix

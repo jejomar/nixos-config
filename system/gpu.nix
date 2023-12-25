@@ -4,10 +4,6 @@
   # Make the kernel use the correct driver version
   boot.initrd.kernelModules = [ "amdgpu" ];
 
-  # Make xserver use the 'amdgpu' driver
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
   hardware.opengl = {
     driSupport = true; # Vulkan support
     driSupport32Bit = true; # Vulkan support for 32 bit applications

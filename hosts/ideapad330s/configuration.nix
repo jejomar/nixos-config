@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
 
       ../../system/filemgmt.nix # File manager and file system support
+      ../../system/gaming.nix
       ../../system/gpu.nix # Extend graphical functionalities
     ];
 
@@ -126,9 +127,6 @@
   };
   services.blueman.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jejomar = {
     isNormalUser = true;
@@ -183,15 +181,6 @@
       }
     )
   ];
-
-  #############
-  ### Steam ###
-  #############
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

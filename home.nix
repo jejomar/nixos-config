@@ -66,11 +66,11 @@
     qbittorrent # Torrent client
     picard # Music tagger
 
-
     # Useful tools
     yt-dlp # Download videos
     mako # Notification daemon
     glib # Access gsettings
+    fastfetch # Fetches system information
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

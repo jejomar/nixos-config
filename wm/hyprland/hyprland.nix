@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Required packages
   home.packages = with pkgs; [
     waypaper # GUI wallpaper setter
     swww # Wallpaper daemon for waypaper

@@ -40,6 +40,9 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+
+    # Trust issue
+    settings.trusted-users = [ "root" "jejomar" ];
   };
 
 
@@ -74,6 +77,7 @@
   services.xserver.displayManager = {
     sddm = {
       enable = true;
+      wayland.enable = true;
       theme = "${import ../../theming/sddm.nix { inherit pkgs; }}";
     };
   };
@@ -155,6 +159,8 @@
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtsvg
     libsForQt5.qt5.qtgraphicaleffects
+
+    easyeffects
   ];
 
   #######################

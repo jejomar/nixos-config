@@ -2,7 +2,11 @@
 
 {
   # Make the kernel use the correct driver version
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  # boot.initrd.kernelModules = [ "modesetting" ];
+
+  services.xserver = {
+    videoDrivers = [ "amdgpu" ];
+  };
 
   hardware.opengl = {
     driSupport = true; # Vulkan support
@@ -11,7 +15,7 @@
     extraPackages = with pkgs; [
       rocmPackages.clr.icd # OpenCL support
       amdvlk # Addition to Mesa RADV drivers
-      # intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
       vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
       vaapiVdpau
       libvdpau-va-gl

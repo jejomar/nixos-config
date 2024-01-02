@@ -7,7 +7,7 @@
 
   # Temporary fix for Electron
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0" # Required by Obsidian
+     # "electron-25.9.0" # Required by Obsidian
   ];
 
   # Import modules here
@@ -69,7 +69,6 @@
     # Useful tools
     yt-dlp # Download videos
     mako # Notification daemon
-    glib # Access gsettings
     fastfetch # Fetches system information
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

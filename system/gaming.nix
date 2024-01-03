@@ -6,14 +6,7 @@ let
   });
 in
 {
-  # Steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
-  # Heroic Game Launcher
+  # Packages
   environment.systemPackages = with pkgs; [
     # Heroic Game Launcher
     heroic
@@ -22,6 +15,19 @@ in
     wineWowPackages.stable
     wineWowPackages.staging
     winetricks
+
+    # Mangohud
+    mangohud
   ];
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+  # Gamescope
+  programs.gamescope.enable = true;
 
 }

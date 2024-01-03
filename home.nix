@@ -7,7 +7,7 @@
 
   # Temporary fix for Electron
   nixpkgs.config.permittedInsecurePackages = [
-     # "electron-25.9.0" # Required by Obsidian
+     "electron-25.9.0" # Required by Obsidian
   ];
 
   # Import modules here
@@ -19,6 +19,7 @@
     ./app/tools/mako.nix
     ./app/browser/chromium.nix
     ./theming/theming.nix
+    ./user/emulation.nix
     ./wm/hyprland/hyprland.nix
   ];
 

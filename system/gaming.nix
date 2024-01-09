@@ -18,6 +18,9 @@ in
 
     # Mangohud
     mangohud
+
+    # Lutris
+    lutris
   ];
 
   # Steam
@@ -29,5 +32,8 @@ in
 
   # Gamescope
   programs.gamescope.enable = true;
+
+  # Gamemode
+  programs.gamemode.enable = true;
 
 }

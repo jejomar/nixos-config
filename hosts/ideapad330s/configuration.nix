@@ -87,9 +87,18 @@
   ################
   programs.hyprland = {
     enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
     # Enable XWayland support
     xwayland.enable = true;
+  };
+
+  ### XDG Portals ###
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
   };
 
   #############
@@ -140,7 +149,6 @@
       firefox
       git
       rofi-wayland
-      xdg-desktop-portal-hyprland
       pavucontrol
       xdg-user-dirs
       networkmanagerapplet
@@ -154,6 +162,7 @@
     neovim
     kitty
     bat
+    xdg-desktop-portal-gtk
 
     # Needed for SDDM theming
     libsForQt5.qt5.qtquickcontrols2

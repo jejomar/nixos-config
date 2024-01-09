@@ -7,7 +7,13 @@
 
   # Temporary fix for Electron
   nixpkgs.config.permittedInsecurePackages = [
-     "electron-25.9.0" # Required by Obsidian
+     # "electron-25.9.0" # Required by Obsidian
+     "electron-24.8.6" # Obsidian Wayland, above does not work
+  ];
+
+  # Overlays
+  nixpkgs.overlays = [
+    (final: prev: { obsidian-wayland = prev.obsidian.override { electron = final.electron_24; }; })
   ];
 
   # Import modules here
@@ -56,7 +62,7 @@
     # Productivity
     libreoffice-fresh
     zathura
-    obsidian
+    obsidian-wayland
 
     # Communication
     discord
@@ -114,6 +120,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    LD_PATH = "$(nix build --print-out-paths --no-link nixpkgs#libGL)/lib";
   };
 
   # Let Home Manager install and manage itself.

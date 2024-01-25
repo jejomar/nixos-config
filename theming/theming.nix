@@ -5,13 +5,14 @@
 
   home.packages = with pkgs; [
     papirus-folders
+    lightly-qt
   ];
 
   # Enable support for qt and gtk
   gtk.enable = true;
   qt.enable = true;
 
-  qt.platformTheme = "gtk3";
+  qt.platformTheme = "qtct";
 
   # Set cursor theme
   gtk.cursorTheme = {

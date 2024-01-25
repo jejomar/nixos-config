@@ -63,6 +63,7 @@
     libreoffice-fresh
     zathura
     obsidian-wayland
+    masterpdfeditor4
 
     # Communication
     discord
@@ -72,11 +73,14 @@
     protonup-qt # For installing Proton GE
     qbittorrent # Torrent client
     picard # Music tagger
+    stremio # modern media center that gives you the freedom to watch everything you want
 
     # Useful tools
     yt-dlp # Download videos
     mako # Notification daemon
     fastfetch # Fetches system information
+    wget
+    glxinfo
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

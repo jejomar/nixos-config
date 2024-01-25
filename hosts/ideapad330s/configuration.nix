@@ -5,6 +5,7 @@
     [
       ./hardware-configuration.nix
 
+      ../../system/virtualization.nix # Virtualization support
       ../../system/filemgmt.nix # File manager and file system support
       ../../system/gaming.nix
       ../../system/gpu.nix # Extend graphical functionalities
@@ -140,11 +141,14 @@
   };
   services.blueman.enable = true;
 
+  # Android
+  programs.adb.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jejomar = {
     isNormalUser = true;
     description = "Jejomar Cariaga";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "adbusers" ];
     packages = with pkgs; [
       firefox
       git
@@ -162,14 +166,19 @@
     neovim
     kitty
     bat
-    xdg-desktop-portal-gtk
+    btop
+    stow
 
     # Needed for SDDM theming
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtsvg
     libsForQt5.qt5.qtgraphicaleffects
+    qt5ct
 
     easyeffects
+
+    # Allow streaming Wayland windows to X applications
+    xwaylandvideobridge
   ];
 
   #######################

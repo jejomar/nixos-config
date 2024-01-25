@@ -3,7 +3,7 @@
 {
   programs.kitty = {
     enable = true;
-    theme = "Gruvbox Dark Hard";
+    theme = "Catppuccin-Mocha";
     settings = {
         font_family = "Blex Mono Nerd Font Mono";
         background_opacity = "0.80";
